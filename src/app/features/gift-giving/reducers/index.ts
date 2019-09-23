@@ -1,14 +1,14 @@
 
 export const featureName = 'giftGiving';
 import * as fromHolidays from './holidays.reducer';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector, ActionReducerMap } from '@ngrx/store';
 import { HolidayListItem } from '../models';
 
 export interface GiftGivingState {
   holidays: fromHolidays.HolidayState;
 }
 
-export const reducers = {
+export const reducers: ActionReducerMap<GiftGivingState> = {
   holidays: fromHolidays.reducer
 };
 
