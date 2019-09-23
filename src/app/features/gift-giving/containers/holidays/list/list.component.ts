@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { HolidayListItem } from '../../models';
+import { HolidayListItem } from '../../../models';
 
 @Component({
   selector: 'app-holiday-list',
