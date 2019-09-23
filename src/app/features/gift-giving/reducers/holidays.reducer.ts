@@ -14,6 +14,9 @@ export interface HolidayState extends EntityState<HolidayEntity> {
 
 export const adapter = createEntityAdapter<HolidayEntity>();
 
+const { selectAll } = adapter.getSelectors(); // ONLY want selectAll from the getSelectors
+export const selectHolidayArray = selectAll;
+
 // const initialState = adapter.getInitialState();
 const initialState: HolidayState = {
   ids: ['1', '2', '3'],
@@ -26,12 +29,12 @@ const initialState: HolidayState = {
     2: {
       id: '2',
       name: 'New Year\'s',
-      date: '2020-1-1T00:00:00.000Z'
+      date: '2020-01-01T00:00:00.000Z'
     },
     3: {
       id: '3',
       name: 'Labor Day',
-      date: '2019-9-1T00:00:00.000Z'
+      date: '2019-09-01T00:00:00.000Z'
     }
   }
 };

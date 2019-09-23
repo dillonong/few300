@@ -3,5 +3,5 @@
 </header>
 <section>
   <app-holiday-entry></app-holiday-entry>
-  <app-holiday-list></app-holiday-list>
+  <app-holiday-list [model]="holidays$ | async"></app-holiday-list>
 </section>
