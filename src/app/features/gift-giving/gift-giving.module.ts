@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './reducers';
 import { ListComponent } from './containers/holidays/list/list.component';
 import { EntryComponent } from './containers/holidays/entry/entry.component';
+import { SortFilterComponent } from './containers/holidays/sort-filter/sort-filter.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [GiftGivingComponent, FriendsComponent, HolidaysComponent, DashboardComponent, ListComponent, EntryComponent],
+  declarations: [GiftGivingComponent, FriendsComponent, HolidaysComponent, DashboardComponent, ListComponent, EntryComponent, SortFilterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

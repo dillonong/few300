@@ -1,0 +1,12 @@
+<div class="btn-group"
+     role="group"
+     aria-label="Filter Options">
+  <button type="button"
+          (click)="viewAll()"
+          [disabled]="(showAll$ | async) === true"
+          class="btn btn-secondary">View All</button>
+  <button type="button"
+          [disabled]="(showAll$ | async) === false"
+          (click)="showOnlyUpcoming()"
+          class="btn btn-secondary">Only Upcoming</button>
+</div>
