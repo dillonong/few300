@@ -15,6 +15,8 @@ import { AppEffects } from './effects/app.effects';
 import { SortFilterEffects } from './effects/sort-filter.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { HolidayEffects } from './effects/holidays.effects';
+import { FriendListComponent } from './containers/friends/friend-list/friend-list.component';
+import { FriendEntryComponent } from './containers/friends/friend-entry/friend-entry.component';
 
 const routes: Routes = [
   {
@@ -49,7 +51,9 @@ const routes: Routes = [
     DashboardComponent,
     ListComponent,
     EntryComponent,
-    SortFilterComponent],
+    SortFilterComponent,
+    FriendListComponent,
+    FriendEntryComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
