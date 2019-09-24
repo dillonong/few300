@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { SortFilterEffects } from './effects/sort-filter.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { HolidayEffects } from './effects/holidays.effects';
 
 const routes: Routes = [
   {
@@ -53,7 +54,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(featureName, reducers),
-    EffectsModule.forFeature([AppEffects, SortFilterEffects]),
+    EffectsModule.forFeature([AppEffects, SortFilterEffects, HolidayEffects]),
     HttpClientModule
   ]
 })

@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { pipe } from 'rxjs';
-import { tap, map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import * as appEffects from '../../../actions/app.actions';
 import * as sortFilterActions from '../actions/sort-filter.actions';
-import * as holidaysActions from '../actions/holidays.actions';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
-import { HolidayEntity } from '../reducers/holidays.reducer';
+import { loadHolidayData } from '../actions/holidays.actions';
+
 
 @Injectable()
 export class AppEffects {
@@ -23,14 +20,9 @@ export class AppEffects {
   onAppStartLoadHolidays$ = createEffect(() =>
     this.action$.pipe(
       ofType(appEffects.applicationStarted),
-      switchMap(() => this.client.get<{ holidays: HolidayEntity[] }>(environment.holidayUrl)
-        .pipe(
-          map(response => response.holidays),
-          map(holidays => holidaysActions.loadDataSucceeded({ data: holidays }))
-        )
-      )
+      map(() => loadHolidayData())
     ), { dispatch: true }
   );
 
-  constructor(private action$: Actions, private client: HttpClient) { }
+  constructor(private action$: Actions) { }
 }
