@@ -4,5 +4,5 @@
 
 <section>
   <app-friend-entry></app-friend-entry>
-  <app-friend-list></app-friend-list>
+  <app-friend-list [model]="friends$ | async"></app-friend-list>
 </section>

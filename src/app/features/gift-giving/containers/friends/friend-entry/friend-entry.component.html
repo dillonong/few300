@@ -1,1 +1,12 @@
-<p>friend-entry works!</p>
+<div class="form-group">
+  <label for="FullName">Name</label>
+  <input name="fullname"
+         #friendsName
+         class="form-control">
+</div>
+<div class="form-group">
+  <input type="button"
+         (click)="addFriend(friendsName)"
+         class="btn btn-primary"
+         value="Add a new Friend">
+</div>

@@ -1,8 +1,6 @@
 <ul class="list-unstyled">
-  <li class="alert">
-    <h5>John Doe</h5>
-  </li>
-  <li class="alert">
-    <h5>John Doe 2</h5>
+  <li class="alert"
+      *ngFor="let friend of model">
+    <h5>{{ friend.name }}</h5>
   </li>
 </ul>
