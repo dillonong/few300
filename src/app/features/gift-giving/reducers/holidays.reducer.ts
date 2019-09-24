@@ -45,7 +45,12 @@ const initialState = adapter.getInitialState(); // Returns an empty InitialState
 const reducerFunction = createReducer(
   initialState,
   on(actions.holidayAdded, (state, action) => adapter.addOne(action.entity, state)),
-  on(actions.loadDataSucceeded, (state, action) => adapter.addAll(action.data, state)) // - THIS IS WHAT LOADS DATA after getting from API
+  on(actions.loadDataSucceeded, (state, action) => adapter.addAll(action.data, state)), // - THIS IS WHAT LOADS DATA after getting from API
+  on(actions.holidayAddedSuccess, (state, action) => {
+    const tempState = adapter.removeOne(action.oldId, state);
+    return adapter.addOne(action.newEntity, tempState);
+  }),
+  on(actions.holidayAddedFailure, (state, action) => adapter.removeOne(action.entity.id, state))
 );
 
 export function reducer(state: HolidayState = initialState, action: Action) {
