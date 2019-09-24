@@ -1,14 +1,17 @@
 import { createReducer, Action, on } from '@ngrx/store';
 import * as sortfilterActions from '../actions/sort-filter.actions';
+import * as fromHolidaysActions from '../actions/holidays.actions';
 
 export interface UiHintsState {
   showAll: boolean;
   sortHolidaysBy: string; // 'name' | 'date';
+  holidaysLoaded: boolean;
 }
 
 const initialState: UiHintsState = {
   showAll: true,
-  sortHolidaysBy: 'name'
+  sortHolidaysBy: 'name',
+  holidaysLoaded: false
 };
 
 const myReducer = createReducer(
@@ -16,7 +19,9 @@ const myReducer = createReducer(
   on(sortfilterActions.filterShowAll, (state) => ({ ...state, showAll: true })),
   on(sortfilterActions.filterShowOnlyUpcoming, (state) => ({ ...state, showAll: false })),
   on(sortfilterActions.sortHolidaysByDate, (state) => ({ ...state, sortHolidaysBy: 'date' })),
-  on(sortfilterActions.sortHolidaysByName, (state) => ({ ...state, sortHolidaysBy: 'name' }))
+  on(sortfilterActions.sortHolidaysByName, (state) => ({ ...state, sortHolidaysBy: 'name' })),
+  on(fromHolidaysActions.loadHolidayData, (state) => ({ ...state, holidaysLoaded: false })),
+  on(fromHolidaysActions.loadDataSucceeded, (state) => ({ ...state, holidaysLoaded: true }))
 );
 
 export function reducer(state: UiHintsState, action: Action): UiHintsState {
