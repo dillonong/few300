@@ -1,5 +1,6 @@
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { select, createReducer, Action } from '@ngrx/store';
+import { select, createReducer, Action, on } from '@ngrx/store';
+import * as actions from '../actions/friends.actions';
 
 
 export interface FriendEntity {
@@ -34,7 +35,8 @@ const initialState: FriendState = {
 
 
 const reducerFunction = createReducer(
-  initialState
+  initialState,
+  on(actions.friendAdded, (state, action) => adapter.addOne(action.entity, state))
 );
 
 export function reducer(state: FriendState = initialState, action: Action) {
