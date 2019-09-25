@@ -18,25 +18,14 @@ export const adapter = createEntityAdapter<FriendEntity>();
 const { selectAll } = adapter.getSelectors();
 export const selectFriendsArray = selectAll;
 
-const initialState: FriendState = {
-  ids: ['1', '2', '3'],
-  entities: {
-    1: {
-      id: '1', name: 'Sam'
-    },
-    2: {
-      id: '2', name: 'John'
-    },
-    3: {
-      id: '3', name: 'Smith'
-    }
-  }
-};
+const initialState = adapter.getInitialState();
 
 
 const reducerFunction = createReducer(
   initialState,
-  on(actions.friendAdded, (state, action) => adapter.addOne(action.entity, state))
+  on(actions.friendAdded, (state, action) => adapter.addOne(action.entity, state)),
+  on(actions.loadFriendsSucceeded, (state, action) => adapter.addAll(action.data, state))
+
 );
 
 export function reducer(state: FriendState = initialState, action: Action) {

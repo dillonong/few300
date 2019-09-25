@@ -17,12 +17,12 @@ export const loadFriendsData = createAction(
   '[gift giving] load friend data'
 );
 
-export const loadDataSucceeded = createAction(
-  '[gift giving] load data succeeded',
+export const loadFriendsSucceeded = createAction(
+  '[gift giving] load friends succeeded',
   props<{ data: Friend[] }>()
 );
 
-export const loadDataFailed = createAction(
-  '[gift giving] load data failed',
+export const loadFriendsailed = createAction(
+  '[gift giving] load friends failed',
   props<{ data: Friend[] }>()
 );

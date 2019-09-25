@@ -35,8 +35,8 @@ export const selectSortingHolidaysBy = createSelector(selectUiHintsBranch, b => 
 const selectFriendsArray = createSelector(selectFriendsBranch, fromFriends.selectFriendsArray);
 
 // Then what your components need
-export const seleectHolidaysLoaded = createSelector(selectUiHintsBranch, b => b.holidaysLoaded);
-
+export const selectHolidaysLoaded = createSelector(selectUiHintsBranch, b => b.holidaysLoaded);
+export const selectFriendsLoaded = createSelector(selectUiHintsBranch, b => b.friendsLoaded);
 
 // - we need one that returns a HolidayListItem[] for our holidayList Component
 const selectHolidayListItemsUnFiltered = createSelector(selectHolidayArray, holidays =>
