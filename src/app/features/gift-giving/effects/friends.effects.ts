@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class FriendsEffects {
 
-  loadHolidayData$ = createEffect(() =>
+  loadFriendsData$ = createEffect(() =>
     this.actions$.pipe(
       ofType(friendsActions.loadFriendsData),
       switchMap(() => this.client.get<{ friends: FriendEntity[] }>(environment.friendsUrl)

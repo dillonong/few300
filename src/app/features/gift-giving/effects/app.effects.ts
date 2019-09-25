@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import * as appEffects from '../../../actions/app.actions';
 import * as sortFilterActions from '../actions/sort-filter.actions';
 import { loadHolidayData } from '../actions/holidays.actions';
+import { loadFriendsData } from '../actions/friends.actions';
 
 
 @Injectable()
@@ -21,6 +22,13 @@ export class AppEffects {
     this.action$.pipe(
       ofType(appEffects.applicationStarted),
       map(() => loadHolidayData())
+    ), { dispatch: true }
+  );
+
+  onAppStartLoadFriendss$ = createEffect(() =>
+    this.action$.pipe(
+      ofType(appEffects.applicationStarted),
+      map(() => loadFriendsData())
     ), { dispatch: true }
   );
 

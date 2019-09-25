@@ -1,13 +1,13 @@
 import { Friend } from '../models/friend';
 import { createAction, props } from '@ngrx/store';
 
-const currentId = 100;
+let currentId = 100;
 
 export const friendAdded = createAction(
   '[gift givign] friend Added',
   ({ name }: { name: string }) => ({
     entity: {
-      id: 'T' + currentId,
+      id: 'T' + currentId++,
       name
     } as Friend
   })
